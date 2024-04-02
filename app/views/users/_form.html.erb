@@ -1,3 +1,15 @@
+<% if @user.errors.any? %>
+  <h4 style="color:red">
+  The following errors prevent the user to be created
+      <% @user.errors.full_messages.each do |msg| %>
+        <li style="color:red">
+          <%= msg %>
+        </li>
+      <% end %>
+  </h4>
+
+<% end %>
+
 <%= form_with(model: @user, data: { turbo: false }, local: true) do |f| %>
 
     <p>
