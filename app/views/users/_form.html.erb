@@ -24,14 +24,16 @@
       <%= f.email_field :email, placeholder: "Example@example.com" %>
     </p>
 
-    <p>
-      <%= f.label :password %>
-      <br/>
-      <%= f.password_field :password, placeholder: "Enter your password" %>
-    </p>
+    <% if not @user.password_digest? %>
+      <p>
+        <%= f.label :password %>
+        <br/>
+        <%= f.password_field :password, placeholder: "Enter your password" %>
+      </p>
+    <% end %>
 
     <p>
-      <%= f.submit %>
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update User") %>
     </p>
     
 <% end %>
