@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
     def update
         @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title, :description))
+        if @article.update(params.require(:article).permit(:title, :description, :image))
             flash[:notice] = "Article was updated successfully"
             redirect_to @article
         else
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.new(params.require(:article).permit(:title, :description))
+        @article = Article.new(params.require(:article).permit(:title, :description, :image))
         @article.user = User.first
         if @article.save
           flash[:notice] = "Article was created successfully"

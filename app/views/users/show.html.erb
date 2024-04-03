@@ -1,0 +1,11 @@
+<h1>Showing User details</h1>
+<p><strong>Username: </strong><%= @user.username %></p>
+<p><strong>Description: </strong><%= @user.email%></p>
+
+<% if @user.articles.any? %>
+<h4>User articles</h4>
+<% @user.articles.each do |usr|%>
+    <p><strong><%= usr.title %></strong></p>
+    <p><%= usr.description %></p>
+<% end %>
+<% end %>

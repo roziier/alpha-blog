@@ -1,4 +1,7 @@
 <h1>Showing article details</h1>
+<% if @article.image.any? %>
+    <%= image_tag(@article.image)%>
+<% end %>
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description: </strong><%= @article.description%></p>
 <p><strong>User: </strong><%= @article.user.username%></p>
